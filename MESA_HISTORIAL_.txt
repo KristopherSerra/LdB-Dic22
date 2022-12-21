@@ -1,0 +1,39 @@
+--Miramos la tabla a crear un historial 
+SELECT* FROM mesa;
+
+CREATE TABLE log_mesa (
+num_mesa INTEGER,
+exclusiva_socio BOOLEAN,
+actualmente_disponible BOOLEAN,
+log_movimiento TEXT, --Registra que tipo de movimiento se realizo, sus modificaciones, elimininaciones y cargas
+log_fecha_movimiento DATE); --Registra la fecha del movimiento anteriormente mencionado
+
+--Creamos la funcion a realizar
+CREATE OR REPLACE FUNCTION tg_fun_logmesa () RETURNS TRIGGER AS
+$BODY$
+BEGIN 
+  IF (TG_OP= 'INSERT' OR TG_OP='UPDATE')THEN --TG OP se refiere a la operacion que se va a hacer sobre la tabla mesa
+     INSERT INTO log_mesa 
+	(num_mesa, exclusiva_socio, actualmente_disponible, log_movimiento, log_fecha_movimiento)
+     VALUES 
+	(new.num_mesa, new.exclusiva_socio, new.actualmente_disponible, TG_OP, CURRENT_DATE);
+   RETURN NEW;
+  END IF;
+  IF (TG_OP= ' DELETE') THEN 
+     INSERT INTO log_mesa
+	(num_mesa, exclusiva_socio, actualmente_disponible, log_movimiento, log_fecha_movimiento)
+     VALUES --Se registran los valores eliminados
+	(old.num_mesa, old.exclusiva_socio, old.actualmente_disponible, TG_OP, CURRENT_DATE);
+   RETURN OLD;
+  END IF;
+END
+$BODY$
+LANGUAGE plpgsql;
+
+--CREAMOS EL TRIGGER VINCULADO A LA FUNCION Y TABLA 
+CREATE TRIGGER tg_log_mesa AFTER INSERT OR UPDATE OR DELETE 
+ON mesa FOR EACH ROW EXECUTE  PROCEDURE tg_fun_logmesa();
+
+--Corroboramos que este funcionando correctamente
+SELECT*FROM log_mesa;
+UPDATE mesa SET num_mesa = 10 WHERE num_mesa= 1;

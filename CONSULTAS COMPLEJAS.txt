@@ -1,0 +1,19 @@
+SELECT E.nombre, E.apellido FROM empleado E 
+INNER JOIN pedido_para_llevar L ON L.dni_delivery = E.dni_empleado 
+INNER JOIN pedido P ON L.num_pedido = P.num_pedido AND P.fecha = '21/06/2022';
+
+-- Consulta de Mesas reservadas.
+SELECT * FROM mesa m
+FULL OUTER JOIN reserva r
+ON r.num_mesa = m.num_mesa
+ORDER BY m.num_mesa;
+
+-- Consulta de mesas disponibles que no son para socios
+select * from MESA m
+where m.actualmente_disponible = true and exclusiva_socio = false;
+
+-- Mesa reservada por socios
+SELECT r.num_mesa,r.turno,r.fecha,r.numero_socio FROM reserva r
+inner JOIN mesa m
+ON r.num_mesa = m.num_mesa
+ORDER BY r.num_mesa;
