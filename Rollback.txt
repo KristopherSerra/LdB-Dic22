@@ -1,0 +1,8 @@
+ROLLBACK;
+BEGIN;
+    INSERT INTO Pedidos_para_llevar (Num_Pedido, Nombre_Completo_cliente, Horario, Direccion, DNI_Repartidor) VALUES (1, 'Pedro Aznar', '20:30', 'Italia 827',43094411);
+    SAVEPOINT insertsNuevos;
+    INSERT INTO Pedidos_para_llevar (Num_Pedido, Nombre_Completo_cliente, Horario, Direccion, DNI_Repartidor) VALUES (2, 'Pedro Aznar', '20:30', 'Italia 827',43094411);
+    ROLLBACK TO SAVEPOINT insertNuevos;
+    INSERT INTO Pedidos_para_llevar (Num_Pedido, Nombre_Completo_cliente, Horario, Direccion, DNI_Repartidor) VALUES (3, 'Pedro Aznar', '20:30', 'Italia 827',43094411);
+COMMIT;

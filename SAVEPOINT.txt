@@ -1,0 +1,8 @@
+ROLLBACK;
+BEGIN;
+    SAVEPOINT cargaDeNuevaMesa;
+    DELETE FROM mesas where num_mesa =26;
+	INSERT INTO mesas (Num_Mesa,Exclusiva_Socio,Actualmente_Disponible) VALUES (26, FALSE, TRUE); 
+    ROLLBACK TO SAVEPOINT cargaDeNuevaMesa;
+COMMIT;
+SELECT * FROM MESAS;
