@@ -36,6 +36,7 @@ INSERT INTO reservas (Num_Mesa,Turno,Fecha,Numero_Socio) VALUES (17, 'mañana','
 INSERT INTO reservas (Num_Mesa,Turno,Fecha,Numero_Socio) VALUES (18, 'mañana','21/05/2022',632);
 INSERT INTO reservas (Num_Mesa,Turno,Fecha,Numero_Socio) VALUES (22, 'tarde','07/05/2009',179);
 INSERT INTO reservas (Num_Mesa,Turno,Fecha,Numero_Socio) VALUES (25, 'noche','07/05/2009',198);
+INSERT INTO reservas (Num_Mesa,Turno,Fecha,Numero_Socio) VALUES (20, 'noche','19/12/2022',198);
 
 
 -- PRODUCTO
