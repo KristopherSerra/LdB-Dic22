@@ -1,6 +1,7 @@
 -- Script poblado de tablas
 
 -- MESAS
+BEGIN;
 INSERT INTO mesas (Num_Mesa,Exclusiva_Socio,Actualmente_Disponible) VALUES (1, FALSE, TRUE); 
 INSERT INTO mesas (Num_Mesa,Exclusiva_Socio,Actualmente_Disponible) VALUES (2, FALSE, TRUE); 
 INSERT INTO mesas (Num_Mesa,Exclusiva_Socio,Actualmente_Disponible) VALUES (3, FALSE, FALSE);
@@ -26,8 +27,10 @@ INSERT INTO mesas (Num_Mesa,Exclusiva_Socio,Actualmente_Disponible) VALUES (22, 
 INSERT INTO mesas (Num_Mesa,Exclusiva_Socio,Actualmente_Disponible) VALUES (23,  TRUE, TRUE);
 INSERT INTO mesas (Num_Mesa,Exclusiva_Socio,Actualmente_Disponible) VALUES (24,  TRUE, TRUE);
 INSERT INTO mesas (Num_Mesa,Exclusiva_Socio,Actualmente_Disponible) VALUES (25,  TRUE, FALSE);
+COMMIT;
 
 -- RESERVA
+BEGIN;
 INSERT INTO reservas (Num_Mesa,Turno,Fecha,Numero_Socio) VALUES (3, 'noche','07/05/2009',159);
 INSERT INTO reservas (Num_Mesa,Turno,Fecha,Numero_Socio) VALUES (8, 'mañana','06/02/2019',947);
 INSERT INTO reservas (Num_Mesa,Turno,Fecha,Numero_Socio) VALUES (10, 'tarde','21/05/2018',001);
@@ -38,8 +41,10 @@ INSERT INTO reservas (Num_Mesa,Turno,Fecha,Numero_Socio) VALUES (22, 'tarde','07
 INSERT INTO reservas (Num_Mesa,Turno,Fecha,Numero_Socio) VALUES (25, 'noche','07/05/2009',198);
 INSERT INTO reservas (Num_Mesa,Turno,Fecha,Numero_Socio) VALUES (20, 'noche','19/12/2022',198);
 
+COMMIT;
 
 -- PRODUCTO
+BEGIN;
 INSERT INTO productos (Codigo_Producto, Descripcion, Precio) VALUES (418, 'Especial', '780');
 INSERT INTO productos (Codigo_Producto, Descripcion, Precio) VALUES (424, 'Explosiva', '980');
 INSERT INTO productos (Codigo_Producto, Descripcion, Precio) VALUES (300, 'Hamburguesa', '450');
@@ -50,53 +55,56 @@ INSERT INTO productos (Codigo_Producto, Descripcion, Precio) VALUES (430, 'Coca-
 INSERT INTO productos (Codigo_Producto, Descripcion, Precio) VALUES (420, 'Amstel 750ml', '750');
 INSERT INTO productos (Codigo_Producto, Descripcion, Precio) VALUES (500, 'Villavicencio 900ml', '200');
 INSERT INTO productos (Codigo_Producto, Descripcion, Precio) VALUES (508, 'Sprite 1,5 ltrs', '300');
-
+COMMIT;
 
 -- PEDIDO
 --todos los pedidos tienen descuento de 10%
+BEGIN;
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (1, FALSE, 10, 'La pizza sin aceitunas.',1, 0,0, '21-05-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (2, FALSE, '',2, 0,0, '18-06-2020');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (3, FALSE, 15, '',3, 0,0, '21-05-2023');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (4, FALSE, '',4, 0,0, '11-10-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (2, FALSE, 10, '',2, 0,0, '18-06-2020');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (3, FALSE, 10, '',3, 0,0, '21-05-2023');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (4, FALSE, 10, '',4, 0,0, '11-10-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (5, FALSE, 10, '',5, 0,0, '13-08-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (6, FALSE, 15, '',6, 0,0, '15-06-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (7, FALSE, '',7, 0,0, '05-09-2020');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (6, FALSE, 10, '',6, 0,0, '15-06-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (7, FALSE, 10, '',7, 0,0, '05-09-2020');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (8, FALSE, 10, '',8, 0,0, '01-01-2002');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (9, FALSE, 20, '',9, 0,0, '18-02-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar,  nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (10, FALSE, '',10, 0,0, '19-03-2021');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (11, FALSE,15, '',11,0,0, '19-12-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (12, TRUE, 'La hamburguesa sin queso.',12,0, 0,'14-12-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (13, FALSE, 10, 'El lomo sin lechuga.', 13, 0,0,'30-10-2021');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (14, TRUE, '',14, 0, 0,'05-01-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (15, FALSE, 17, '',15, 0, 0, '27-02-2021');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (16, TRUE, 20,'Sin Huevo', 16, 0, 0, '07-07-2020');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (17, FALSE, '', 17, 0, 0,'01-09-2020');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (9, FALSE, 10, '',9, 0,0, '18-02-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (10, FALSE, 10, '',10, 0,0, '19-03-2021');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (11, FALSE,10, '',11,0,0, '19-12-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (12, TRUE, 10, 'La hamburguesa sin queso.',12,0, 0,'14-12-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (13, FALSE,  10, 'El lomo sin lechuga.', 13, 0,0,'30-10-2021');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (14, TRUE, 10, '',14, 0, 0,'05-01-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (15, FALSE, 10, '',15, 0, 0, '27-02-2021');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (16, TRUE, 10,'Sin Huevo', 16, 0, 0, '07-07-2020');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (17, FALSE, 10, '', 17, 0, 0,'01-09-2020');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (18, TRUE, 10, '',18, 0, 0, '03-01-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (19, FALSE, 10, '',19, 0, 0, '23-12-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (20, TRUE, 10,'1 sin paleta', 20, 0, 0,'15-11-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (21, TRUE, 10, '', 21, 0, 0, '19-09-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (22, TRUE, 15, '', 22, 0, 0, '30-09-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (22, TRUE, 10, '', 22, 0, 0, '30-09-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (23, TRUE, 10, '', 23, 0, 0, '25-09-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (24, TRUE, '', 24, 0, 0, '08-08-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (24, TRUE, 10, '', 24, 0, 0, '08-08-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (25, TRUE, 10, '', 25, 0, 0, '06-08-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (26, TRUE, 10, '', 1, 0, 0, '15-08-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (27, TRUE, 10, '', 2, 0, 0, '17-07-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (28, TRUE, 10, '', 3, 0, 0, '22-06-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (29, TRUE, '', 4, 0, 0, '21-05-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (29, TRUE, 10, '', 4, 0, 0, '21-05-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (30, TRUE, 10, '', 5, 0, 0, '26-01-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (31, TRUE, 10, '', 6, 0, 0, '30-09-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (32, TRUE, 10, '', 7, 0, 0, '01-11-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (33, TRUE, '', 8, 0, 0, '01-11-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (34, TRUE, 18, '', 9, 0, 0, '20-10-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (35, TRUE, '', 10, 0, 0, '13-10-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (36, TRUE, 5, '', 11, 0, 0, '11-10-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (33, TRUE, 10, '', 8, 0, 0, '01-11-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (34, TRUE, 10, '', 9, 0, 0, '20-10-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (35, TRUE, 10, '', 10, 0, 0, '13-10-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (36, TRUE, 10, '', 11, 0, 0, '11-10-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (37, TRUE, 10, '', 12, 0, 0, '10-12-2022');
-INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (38, TRUE, '', 13, 0, 0, '19-12-2022');
+INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (38, TRUE, 10, '', 13, 0, 0, '19-12-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (39, TRUE, 10, '', 14, 0, 0, '05-12-2022');
 INSERT INTO Pedidos (Num_Pedido, preparar_para_llevar, porcentaje_descuento, nota, Num_Mesa, subtotal, precio_total, Fecha) VALUES (40, TRUE, 10, '', 15, 0, 0, '09-12-2022');
+COMMIT;
 
 -- PRODUCTOS POR PEDIDO
 -- Solo hay productos registrados hasta el pedido 10.
+BEGIN;
 INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (1,363,2); --Pedido 1, 2 x Napolitanas completas
 INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (1,430,2); --""    "", 2 x Cocas 500ml
 INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (2,418,1); --Pedido 2, 1 x Pizza Especial
@@ -135,50 +143,11 @@ INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES 
 INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (18,300,1); --""    "", 1 x Hamburguesa
 INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (19,420,1); --Pedido 19, 1 x Amstel 750 ml.
 INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (19,363,3); --""    "", 3 x Napolitanas Completas
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (20,363,2); --Pedido 20, 2 x Napolitanas completas
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (20,430,2); --""    "", 2 x Cocas 500ml
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (21,418,1); --Pedido 21, 1 x Pizza Especial
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (21,420,1); --""    "", 1 x Amstel 750ml
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (22,300,1); --Pedido 22, 1 x Hamburguesa
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (22,326,1); --""    "", 1 x Lomo Completo
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (22,508,2); --""    "", 2 x Sprite 1,5 ltrs.
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (22,500,1); --""    "", 1 x Villavicencio 900ml
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (23,424,5); --Pedido 23, 5 x Explosiva (Pizza)
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (24,420,4); --Pedido 24, 4 x Amstel 750 ml.
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (25,333,2); --Pedido 25, 2 x Milanesas Completas
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (26,508,2); --Pedido 26, 2 x Sprite 1,5 ltrs. 
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (27,418,2); --Pedido 27, 2 x Pizza Especial
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (27,430,2); --""    "", 2 x Coca 500ml.
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (28,326,2); --Pedido 28, 2 x Lomo Completo
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (28,500,3); --""    "", 3 x Villavicencio 900ml.
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (29,300,1); --Pedido 29, 1 x Hamburguesa
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (29,420,1); --""    "", 1 x Amstel 750 ml.
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (30,363,3); --Pedido 30, 3 x Napolitanas Completas
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (31,363,2); --Pedido 31, 2 x Napolitanas completas
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (31,430,2); --""    "", 2 x Cocas 500ml
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (31,418,1); --""    "", 1 x Pizza Especial
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (32,420,1); --Pedido 32, 1 x Amstel 750ml
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (32,300,1); --""    "", 1 x Hamburguesa
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (33,326,1); --Pedido 33, 1 x Lomo Completo
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (34,508,2); --Pedido 34, 2 x Sprite 1,5 ltrs.
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (34,500,1); --""    "", 1 x Villavicencio 900ml
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (34,424,5); --""    "", 5 x Explosiva (Pizza)
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (35,420,4); --Pedido 35, 4 x Amstel 750 ml.
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (35,333,2); --""    "", 2 x Milanesas Completas
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (35,508,2); --""    "", 2 x Sprite 1,5 ltrs. 
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (36,418,2); --Pedido 36, 2 x Pizza Especial
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (37,430,2); --Pedido 37, 2 x Coca 500ml.
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (37,326,2); --""    "", 2 x Lomo Completo
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (38,500,3); --Pedido 38, 3 x Villavicencio 900ml.
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (38,300,1); --""    "", 1 x Hamburguesa
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (39,420,1); --Pedido 39, 1 x Amstel 750 ml.
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (39,363,3); --""    "", 3 x Napolitanas Completas
-INSERT INTO productos_por_pedido (num_pedido, codigo_producto, cantidad) VALUES (40,500,3); --Pedido 40, 3 x Villavicencio 900ml.
-
-
-
+--faltan productos para los pedidos del 20 al 40
+COMMIT;
 
 -- REPARTIDORES
+BEGIN;
 INSERT INTO repartidores (dni_repartidor,Nombre,Apellido) VALUES (39293219,'Cristian','Serra');
 INSERT INTO repartidores (dni_repartidor,Nombre,Apellido) VALUES (28985624,'Adriana','Rivero');
 INSERT INTO repartidores (dni_repartidor,Nombre,Apellido) VALUES (96584762,'Agustina','Rivas');
@@ -189,8 +158,10 @@ INSERT INTO repartidores (dni_repartidor,Nombre,Apellido) VALUES (43568151,'Hito
 INSERT INTO repartidores (dni_repartidor,Nombre,Apellido) VALUES (41987562,'Sebastian','Gonzalez');
 INSERT INTO repartidores (dni_repartidor,Nombre,Apellido) VALUES (39895263,'Natalia','Alvarez');
 INSERT INTO repartidores (dni_repartidor,Nombre,Apellido) VALUES (30589624,'Franco','Rodriguez');
+COMMIT;
 
 -- PEDIDO PARA LLEVAR
+BEGIN;
 INSERT INTO Pedidos_para_llevar (Num_Pedido, Nombre_Completo_cliente, Horario, Direccion, DNI_Repartidor) VALUES (12, 'Pedro Alfonso', '15:30', 'Rivadavia 157', 39293219);
 INSERT INTO Pedidos_para_llevar (Num_Pedido, Nombre_Completo_cliente, Horario, Direccion, DNI_Repartidor) VALUES (14, 'Abelardo Demicheli', '20:30', 'Chacabuco 302', 28985624);
 INSERT INTO Pedidos_para_llevar (Num_Pedido, Nombre_Completo_cliente, Horario, Direccion, DNI_Repartidor) VALUES (16, 'Humberto Perez', '12:00', 'Pellegrini 85',96584762);
@@ -216,3 +187,4 @@ INSERT INTO Pedidos_para_llevar (Num_Pedido, Nombre_Completo_cliente, Horario, D
 INSERT INTO Pedidos_para_llevar (Num_Pedido, Nombre_Completo_cliente, Horario, Direccion, DNI_Repartidor) VALUES (38, 'Pedro Aznar', '20:30', 'Italia 827',43094411);
 INSERT INTO Pedidos_para_llevar (Num_Pedido, Nombre_Completo_cliente, Horario, Direccion, DNI_Repartidor) VALUES (39, 'David Lebon', '20:30', 'Italia 872',43094411);
 INSERT INTO Pedidos_para_llevar (Num_Pedido, Nombre_Completo_cliente, Horario, Direccion, DNI_Repartidor) VALUES (40, 'Oscar Moro', '21:00', 'España 1454',43094411);
+COMMIT;
